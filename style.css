@@ -392,4 +392,24 @@ body {
 	height: fit-content;
 	width: 100%;
 	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 30px;
+}
+
+.task {
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.form {
+	width: 400px;
+	height: 500px;
+	background-color: aliceblue;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
