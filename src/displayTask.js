@@ -20,6 +20,18 @@ function displayTask(Task) {
 	task.appendChild(dueDate);
 	task.appendChild(priority);
 
+	let checkMarkButton = document.createElement('button');
+	checkMarkButton.innerText = '❌';
+	checkMarkButton.classList.add('checkMark');
+	checkMarkButton.addEventListener('click', () => {
+		if (checkMarkButton.innerText === '✔️') {
+			checkMarkButton.innerText = '❌';
+		} else {
+			checkMarkButton.innerText = '✔️';
+		}
+	});
+	task.appendChild(checkMarkButton);
+
 	let deleteButton = document.createElement('button');
 	deleteButton.innerText = 'X';
 	deleteButton.addEventListener('click', () => {

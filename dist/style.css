@@ -423,3 +423,11 @@ body {
 button {
 	cursor: pointer;
 }
+
+.checkMark {
+	color: red;
+}
+
+.checkMark.checkActive {
+	color: green;
+}
