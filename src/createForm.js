@@ -1,5 +1,6 @@
 import { displayTask } from './taskLogic';
 import { hideForm, getFormData } from './formLogic';
+import { displayProject } from './projectLogic';
 
 function createFormInputs() {
 	let inputFieldArr = [];
@@ -19,12 +20,13 @@ function createExitButton() {
 	return exitButton;
 }
 
-function createEnterButton() {
+function createEnterButton(project) {
 	let enterButton = document.createElement('div');
 	enterButton.innerText = 'Enter';
 	enterButton.addEventListener('click', () => {
 		let newTask = getFormData();
-		displayTask(newTask);
+		project.addTask(newTask);
+		displayProject(project);
 		hideForm();
 	});
 	return enterButton;

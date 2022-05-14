@@ -5,7 +5,7 @@ import {
 	createExitButton,
 } from './createForm';
 
-function showForm() {
+function showForm(project) {
 	let formBase = document.createElement('form');
 	formBase.className = 'form';
 	document.querySelector('#formLocation').appendChild(formBase);
@@ -16,7 +16,7 @@ function showForm() {
 		formBase.appendChild(input);
 	}
 
-	formBase.appendChild(createEnterButton());
+	formBase.appendChild(createEnterButton(project));
 }
 
 function hideForm() {

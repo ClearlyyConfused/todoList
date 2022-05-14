@@ -1,3 +1,5 @@
+import { removeTask } from './projectLogic';
+
 function addTasks(Task) {
 	let name = document.createElement('div');
 	let description = document.createElement('div');
@@ -12,25 +14,32 @@ function addTasks(Task) {
 	return [name, description, dueDate, priority];
 }
 
-function createCheckMarkButton() {
+function createCheckMarkButton(task) {
 	let checkMarkButton = document.createElement('button');
-	checkMarkButton.innerText = '❌';
+	if (task.complete === false) {
+		checkMarkButton.innerText = '❌';
+	} else {
+		checkMarkButton.innerText = '✔️';
+	}
 	checkMarkButton.classList.add('checkMark');
 	checkMarkButton.addEventListener('click', () => {
 		if (checkMarkButton.innerText === '✔️') {
 			checkMarkButton.innerText = '❌';
+			task.complete = false;
 		} else {
 			checkMarkButton.innerText = '✔️';
+			task.complete = true;
 		}
 	});
 	return checkMarkButton;
 }
 
-function createDelButton() {
+function createDelButton(project, task) {
 	let deleteButton = document.createElement('button');
 	deleteButton.innerText = 'X';
 	deleteButton.addEventListener('click', () => {
 		deleteButton.parentNode.parentNode.removeChild(deleteButton.parentNode);
+		removeTask(project, task);
 	});
 	return deleteButton;
 }

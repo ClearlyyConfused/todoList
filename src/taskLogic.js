@@ -6,20 +6,21 @@ class Task {
 		this.description = info[1];
 		this.dueDate = info[2];
 		this.priority = info[3];
+		this.complete = false;
 	}
 }
 
-function displayTask(Task) {
+function displayTask(project, task) {
 	let taskBody = document.createElement('div');
 	taskBody.className = 'task';
 	document.querySelector('#content').appendChild(taskBody);
 
-	for (const x of addTasks(Task)) {
+	for (const x of addTasks(task)) {
 		taskBody.appendChild(x);
 	}
 
-	taskBody.appendChild(createCheckMarkButton());
-	taskBody.appendChild(createDelButton());
+	taskBody.appendChild(createCheckMarkButton(task));
+	taskBody.appendChild(createDelButton(project, task));
 }
 
 export { Task, displayTask };
