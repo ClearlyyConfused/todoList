@@ -1,10 +1,4 @@
-import { Task } from './createTasks';
-
-function displayTask(Task) {
-	let task = document.createElement('div');
-	task.className = 'task';
-	document.querySelector('#content').appendChild(task);
-
+function addTasks(Task) {
 	let name = document.createElement('div');
 	let description = document.createElement('div');
 	let dueDate = document.createElement('div');
@@ -15,11 +9,10 @@ function displayTask(Task) {
 	dueDate.innerText = `Due Date: ${Task.dueDate}`;
 	priority.innerText = `Priority: ${Task.priority}`;
 
-	task.appendChild(name);
-	task.appendChild(description);
-	task.appendChild(dueDate);
-	task.appendChild(priority);
+	return [name, description, dueDate, priority];
+}
 
+function createCheckMarkButton() {
 	let checkMarkButton = document.createElement('button');
 	checkMarkButton.innerText = '❌';
 	checkMarkButton.classList.add('checkMark');
@@ -30,14 +23,16 @@ function displayTask(Task) {
 			checkMarkButton.innerText = '✔️';
 		}
 	});
-	task.appendChild(checkMarkButton);
+	return checkMarkButton;
+}
 
+function createDelButton() {
 	let deleteButton = document.createElement('button');
 	deleteButton.innerText = 'X';
 	deleteButton.addEventListener('click', () => {
 		deleteButton.parentNode.parentNode.removeChild(deleteButton.parentNode);
 	});
-	task.appendChild(deleteButton);
+	return deleteButton;
 }
 
-export { displayTask };
+export { addTasks, createCheckMarkButton, createDelButton };
