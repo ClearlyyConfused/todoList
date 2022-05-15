@@ -2,6 +2,7 @@ import { showForm } from './formLogic';
 import { createProject, Project, displayProject } from './projectLogic';
 
 let project1 = createProject('Project 1');
+createTaskButton(project1);
 
 function createTaskButton(project) {
 	let addTaskButton = document.createElement('div');
@@ -14,18 +15,17 @@ function createTaskButton(project) {
 	});
 }
 
-createTaskButton(project1);
+function createAddProjectButton() {
+	const projectButton = document.createElement('div');
+	projectButton.setAttribute('id', '#addProject');
+	projectButton.innerText = 'New Project';
+	projectButton.addEventListener('click', () => {
+		let name = prompt('What do you want to name the project?');
+		let project = createProject(name);
+		displayProject(project);
+	});
 
-const addProjectButton = document.querySelector('#addProject');
-addProjectButton.addEventListener('click', () => {
-	let name = prompt('What do you want to name the project?');
-	let project = createProject(name);
-	displayProject(project);
-});
+	document.querySelector('#header').appendChild(projectButton);
+}
 
-document.querySelector('#test').addEventListener('click', () => {
-	document.querySelector('#content').innerHTML = '';
-	displayProject(project1);
-});
-
-export { createTaskButton };
+export { createTaskButton, createAddProjectButton };

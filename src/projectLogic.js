@@ -1,5 +1,5 @@
 import { displayTask } from './taskLogic';
-import { createTaskButton } from '.';
+import { createTaskButton, createAddProjectButton } from '.';
 
 class Project {
 	constructor(name) {
@@ -12,14 +12,39 @@ class Project {
 	}
 }
 
+let listOfProjects = [];
+
 function createProject(name) {
 	let project = new Project(name);
 
 	let projectDisplay = document.createElement('div');
 	projectDisplay.innerText = project.name;
+	document.querySelector('#header').innerHTML = '';
 	document.querySelector('#header').appendChild(projectDisplay);
+	createAddProjectButton();
 
+	listOfProjects.push(project);
 	return project;
+}
+
+document.querySelector('#switchProject').addEventListener('click', () => {
+	switchProject(prompt('switch to which project?'));
+});
+
+function switchProject(projectName) {
+	for (const x of listOfProjects) {
+		if (x.name === projectName) {
+			document.querySelector('#content').innerHTML = '';
+			displayProject(x);
+			let projectDisplay = document.createElement('div');
+			projectDisplay.innerText = x.name;
+			document.querySelector('#header').innerHTML = '';
+			document.querySelector('#header').appendChild(projectDisplay);
+			createAddProjectButton();
+		} else {
+			alert('Error, no such project name!');
+		}
+	}
 }
 
 function displayProject(project) {
