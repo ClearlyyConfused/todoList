@@ -1,5 +1,10 @@
 import { displayTask } from './taskLogic';
-import { createTaskButton, createAddProjectButton } from '.';
+import {
+	createTaskButton,
+	createAddProjectButton,
+	createSwitchProjectButton,
+} from '.';
+import { createExitButton } from './createForm';
 
 class Project {
 	constructor(name) {
@@ -18,8 +23,10 @@ function createProject(name) {
 	let project = new Project(name);
 
 	let projectDisplay = document.createElement('div');
+	projectDisplay.addEventListener('click', displayAllProjects);
 	projectDisplay.innerText = project.name;
 	document.querySelector('#header').innerHTML = '';
+	createSwitchProjectButton();
 	document.querySelector('#header').appendChild(projectDisplay);
 	createAddProjectButton();
 
@@ -27,9 +34,20 @@ function createProject(name) {
 	return project;
 }
 
-document.querySelector('#switchProject').addEventListener('click', () => {
-	switchProject(prompt('switch to which project?'));
-});
+function displayAllProjects() {
+	document.querySelector('#formLocation').innerHTML = '';
+	let projectDisplay = document.createElement('div');
+	projectDisplay.className = 'projectDisplay';
+	document.querySelector('#formLocation').appendChild(projectDisplay);
+
+	projectDisplay.appendChild(createExitButton());
+
+	for (const x of listOfProjects) {
+		let project = document.createElement('div');
+		project.innerText = x.name;
+		projectDisplay.appendChild(project);
+	}
+}
 
 function switchProject(projectName) {
 	for (const x of listOfProjects) {
@@ -39,12 +57,13 @@ function switchProject(projectName) {
 			let projectDisplay = document.createElement('div');
 			projectDisplay.innerText = x.name;
 			document.querySelector('#header').innerHTML = '';
+			createSwitchProjectButton();
 			document.querySelector('#header').appendChild(projectDisplay);
 			createAddProjectButton();
-		} else {
-			alert('Error, no such project name!');
+			return;
 		}
 	}
+	alert('Error, no such project name!');
 }
 
 function displayProject(project) {
@@ -66,4 +85,4 @@ function removeTask(project, task) {
 	displayProject(project);
 }
 
-export { displayProject, createProject, Project, removeTask };
+export { displayProject, createProject, Project, removeTask, switchProject };

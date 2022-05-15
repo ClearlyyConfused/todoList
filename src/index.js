@@ -1,5 +1,10 @@
 import { showForm } from './formLogic';
-import { createProject, Project, displayProject } from './projectLogic';
+import {
+	createProject,
+	Project,
+	displayProject,
+	switchProject,
+} from './projectLogic';
 
 let project1 = createProject('Project 1');
 createTaskButton(project1);
@@ -15,6 +20,17 @@ function createTaskButton(project) {
 	});
 }
 
+function createSwitchProjectButton() {
+	const projectButton = document.createElement('div');
+	projectButton.setAttribute('id', '#switchProject');
+	projectButton.innerText = 'Switch Project';
+	projectButton.addEventListener('click', () => {
+		switchProject(prompt('Switch to which project?'));
+	});
+
+	document.querySelector('#header').appendChild(projectButton);
+}
+
 function createAddProjectButton() {
 	const projectButton = document.createElement('div');
 	projectButton.setAttribute('id', '#addProject');
@@ -28,4 +44,4 @@ function createAddProjectButton() {
 	document.querySelector('#header').appendChild(projectButton);
 }
 
-export { createTaskButton, createAddProjectButton };
+export { createTaskButton, createAddProjectButton, createSwitchProjectButton };
