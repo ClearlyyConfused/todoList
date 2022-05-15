@@ -1,4 +1,3 @@
-import { displayTask } from './taskLogic';
 import { hideForm, getFormData } from './formLogic';
 import { displayProject } from './projectLogic';
 

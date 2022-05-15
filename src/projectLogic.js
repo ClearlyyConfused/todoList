@@ -1,9 +1,9 @@
-import { displayTask } from './taskLogic';
 import {
-	createTaskButton,
-	createAddProjectButton,
-	createSwitchProjectButton,
-} from '.';
+	createAddProjBtn,
+	createSwitchProjBtn,
+	createProjectHeader,
+	createProjectBody,
+} from './createProject';
 import { createExitButton } from './createForm';
 
 class Project {
@@ -21,20 +21,22 @@ let listOfProjects = [];
 
 function createProject(name) {
 	let project = new Project(name);
-
-	let projectDisplay = document.createElement('div');
-	projectDisplay.addEventListener('click', displayAllProjects);
-	projectDisplay.innerText = project.name;
-	document.querySelector('#header').innerHTML = '';
-	createSwitchProjectButton();
-	document.querySelector('#header').appendChild(projectDisplay);
-	createAddProjectButton();
-
 	listOfProjects.push(project);
 	return project;
 }
 
-function displayAllProjects() {
+function delProjectFromList(project) {
+	let y = 0;
+	for (const x of listOfProjects) {
+		if (x === project) {
+			listOfProjects.splice(y, 1);
+		}
+		y++;
+	}
+	displayProjectList();
+}
+
+function displayProjectList() {
 	document.querySelector('#formLocation').innerHTML = '';
 	let projectDisplay = document.createElement('div');
 	projectDisplay.className = 'projectDisplay';
@@ -50,21 +52,10 @@ function displayAllProjects() {
 		let delProject = document.createElement('button');
 		delProject.innerText = 'del Project';
 		delProject.addEventListener('click', () => {
-			removeProject(x);
+			delProjectFromList(x);
 		});
 		projectDisplay.appendChild(delProject);
 	}
-}
-
-function removeProject(project) {
-	let y = 0;
-	for (const x of listOfProjects) {
-		if (x === project) {
-			listOfProjects.splice(y, 1);
-		}
-		y++;
-	}
-	displayAllProjects();
 }
 
 function switchProject(projectName) {
@@ -74,11 +65,11 @@ function switchProject(projectName) {
 			displayProject(x);
 			let projectDisplay = document.createElement('div');
 			projectDisplay.innerText = x.name;
-			projectDisplay.addEventListener('click', displayAllProjects);
+			projectDisplay.addEventListener('click', displayProjectList);
 			document.querySelector('#header').innerHTML = '';
-			createSwitchProjectButton();
+			createSwitchProjBtn();
 			document.querySelector('#header').appendChild(projectDisplay);
-			createAddProjectButton();
+			createAddProjBtn();
 			return;
 		}
 	}
@@ -86,22 +77,14 @@ function switchProject(projectName) {
 }
 
 function displayProject(project) {
-	document.querySelector('#content').innerHTML = '';
-	createTaskButton(project);
-	for (const task of project.taskList) {
-		displayTask(project, task);
-	}
+	createProjectHeader(project);
+	createProjectBody(project);
 }
 
-function removeTask(project, task) {
-	let y = 0;
-	for (const x of project.taskList) {
-		if (x === task) {
-			project.taskList.splice(y, 1);
-		}
-		y++;
-	}
-	displayProject(project);
-}
-
-export { displayProject, createProject, Project, removeTask, switchProject };
+export {
+	Project,
+	displayProject,
+	createProject,
+	switchProject,
+	displayProjectList,
+};

@@ -1,20 +1,7 @@
-import { removeTask } from './projectLogic';
+import { delTaskFromProj } from './taskLogic';
+import { showForm } from './formLogic';
 
-function addTasks(Task) {
-	let name = document.createElement('div');
-	let description = document.createElement('div');
-	let dueDate = document.createElement('div');
-	let priority = document.createElement('div');
-
-	name.innerText = `Name: ${Task.name}`;
-	description.innerText = `Description: ${Task.description}`;
-	dueDate.innerText = `Due Date: ${Task.dueDate}`;
-	priority.innerText = `Priority: ${Task.priority}`;
-
-	return [name, description, dueDate, priority];
-}
-
-function createCheckMarkButton(task) {
+function createCheckMarkBtn(task) {
 	let checkMarkButton = document.createElement('button');
 	if (task.complete === false) {
 		checkMarkButton.innerText = '❌';
@@ -39,9 +26,20 @@ function createDelButton(project, task) {
 	deleteButton.innerText = 'X';
 	deleteButton.addEventListener('click', () => {
 		deleteButton.parentNode.parentNode.removeChild(deleteButton.parentNode);
-		removeTask(project, task);
+		delTaskFromProj(project, task);
 	});
 	return deleteButton;
 }
 
-export { addTasks, createCheckMarkButton, createDelButton };
+function createTaskButton(project) {
+	let addTaskButton = document.createElement('div');
+	addTaskButton.innerText = 'Add Task';
+	addTaskButton.setAttribute('id', 'addTask');
+	document.querySelector('#content').appendChild(addTaskButton);
+
+	document.querySelector('#addTask').addEventListener('click', () => {
+		showForm(project);
+	});
+}
+
+export { createCheckMarkBtn, createDelButton, createTaskButton };
