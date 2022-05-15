@@ -10,10 +10,6 @@ class Project {
 	addTask(task) {
 		this.taskList.push(task);
 	}
-
-	logTaskList() {
-		console.log(this.taskList);
-	}
 }
 
 function createProject(name) {
@@ -28,7 +24,7 @@ function createProject(name) {
 
 function displayProject(project) {
 	document.querySelector('#content').innerHTML = '';
-	createTaskButton();
+	createTaskButton(project);
 	for (const task of project.taskList) {
 		displayTask(project, task);
 	}
@@ -37,7 +33,7 @@ function displayProject(project) {
 function removeTask(project, task) {
 	let y = 0;
 	for (const x of project.taskList) {
-		if (x.name === task.name) {
+		if (x === task) {
 			project.taskList.splice(y, 1);
 		}
 		y++;
