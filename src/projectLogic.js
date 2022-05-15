@@ -46,7 +46,25 @@ function displayAllProjects() {
 		let project = document.createElement('div');
 		project.innerText = x.name;
 		projectDisplay.appendChild(project);
+
+		let delProject = document.createElement('button');
+		delProject.innerText = 'del Project';
+		delProject.addEventListener('click', () => {
+			removeProject(x);
+		});
+		projectDisplay.appendChild(delProject);
 	}
+}
+
+function removeProject(project) {
+	let y = 0;
+	for (const x of listOfProjects) {
+		if (x === project) {
+			listOfProjects.splice(y, 1);
+		}
+		y++;
+	}
+	displayAllProjects();
 }
 
 function switchProject(projectName) {
@@ -56,6 +74,7 @@ function switchProject(projectName) {
 			displayProject(x);
 			let projectDisplay = document.createElement('div');
 			projectDisplay.innerText = x.name;
+			projectDisplay.addEventListener('click', displayAllProjects);
 			document.querySelector('#header').innerHTML = '';
 			createSwitchProjectButton();
 			document.querySelector('#header').appendChild(projectDisplay);
