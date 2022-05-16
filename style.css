@@ -395,15 +395,6 @@ body {
 	border-bottom: none;
 }
 
-#addTask {
-	font-size: 20px;
-	font-weight: 600;
-	margin-bottom: 20px;
-	background-color: #ffede1;
-	padding: 7px;
-	width: 120px;
-}
-
 #content {
 	background-color: #ffede1;
 	height: fit-content;
