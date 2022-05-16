@@ -8,13 +8,13 @@ import { displayTask } from './taskLogic';
 import { createTaskButton } from './createTask';
 
 function createProjectHeader(project) {
-	let projectDisplay = document.createElement('div');
+	let projectDisplay = document.createElement('button');
 	projectDisplay.addEventListener('click', displayProjectList);
 	projectDisplay.innerText = project.name;
 	document.querySelector('#header').innerHTML = '';
-	createSwitchProjBtn();
 	document.querySelector('#header').appendChild(projectDisplay);
 	createAddProjBtn();
+	createSwitchProjBtn();
 }
 
 function createProjectBody(project) {
@@ -26,7 +26,7 @@ function createProjectBody(project) {
 }
 
 function createSwitchProjBtn() {
-	const projectButton = document.createElement('div');
+	const projectButton = document.createElement('button');
 	projectButton.setAttribute('id', '#switchProject');
 	projectButton.innerText = 'Switch Project';
 	projectButton.addEventListener('click', () => {
@@ -37,10 +37,11 @@ function createSwitchProjBtn() {
 }
 
 function createAddProjBtn() {
-	const projectButton = document.createElement('div');
+	const projectButton = document.createElement('button');
 	projectButton.setAttribute('id', '#addProject');
 	projectButton.innerText = 'New Project';
 	projectButton.addEventListener('click', () => {
+		document.querySelector('#formLocation').innerHTML = '';
 		let name = prompt('What do you want to name the project?');
 		let project = createProject(name);
 		displayProject(project);

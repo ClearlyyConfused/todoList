@@ -32,7 +32,7 @@ function createDelButton(project, task) {
 }
 
 function createTaskButton(project) {
-	let addTaskButton = document.createElement('div');
+	let addTaskButton = document.createElement('button');
 	addTaskButton.innerText = 'Add Task';
 	addTaskButton.setAttribute('id', 'addTask');
 	document.querySelector('#content').appendChild(addTaskButton);

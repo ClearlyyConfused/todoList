@@ -46,30 +46,34 @@ function displayProjectList() {
 
 	for (const x of listOfProjects) {
 		let project = document.createElement('div');
-		project.innerText = x.name;
 		projectDisplay.appendChild(project);
 
+		let projectName = document.createElement('div');
+		projectName.innerText = x.name;
+
 		let delProject = document.createElement('button');
-		delProject.innerText = 'del Project';
+		delProject.innerText = 'X';
 		delProject.addEventListener('click', () => {
 			delProjectFromList(x);
 		});
-		projectDisplay.appendChild(delProject);
+		project.appendChild(delProject);
+		project.appendChild(projectName);
 	}
 }
 
 function switchProject(projectName) {
+	document.querySelector('#formLocation').innerHTML = '';
 	for (const x of listOfProjects) {
 		if (x.name === projectName) {
 			document.querySelector('#content').innerHTML = '';
 			displayProject(x);
-			let projectDisplay = document.createElement('div');
+			let projectDisplay = document.createElement('button');
 			projectDisplay.innerText = x.name;
 			projectDisplay.addEventListener('click', displayProjectList);
 			document.querySelector('#header').innerHTML = '';
-			createSwitchProjBtn();
 			document.querySelector('#header').appendChild(projectDisplay);
 			createAddProjBtn();
+			createSwitchProjBtn();
 			return;
 		}
 	}
