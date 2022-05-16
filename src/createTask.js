@@ -35,7 +35,7 @@ function createTaskButton(project) {
 	let addTaskButton = document.createElement('button');
 	addTaskButton.innerText = 'Add Task';
 	addTaskButton.setAttribute('id', 'addTask');
-	document.querySelector('#content').appendChild(addTaskButton);
+	document.querySelector('#header').appendChild(addTaskButton);
 
 	document.querySelector('#addTask').addEventListener('click', () => {
 		showForm(project);

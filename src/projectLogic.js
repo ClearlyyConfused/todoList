@@ -5,6 +5,7 @@ import {
 	createProjectBody,
 } from './createProject';
 import { createExitButton } from './createForm';
+import { createTaskButton } from './createTask';
 
 class Project {
 	constructor(name) {
@@ -50,6 +51,9 @@ function displayProjectList() {
 
 		let projectName = document.createElement('div');
 		projectName.innerText = x.name;
+		projectName.addEventListener('click', () => {
+			switchProject(x.name);
+		});
 
 		let delProject = document.createElement('button');
 		delProject.innerText = 'X';
@@ -62,7 +66,6 @@ function displayProjectList() {
 }
 
 function switchProject(projectName) {
-	document.querySelector('#formLocation').innerHTML = '';
 	for (const x of listOfProjects) {
 		if (x.name === projectName) {
 			document.querySelector('#content').innerHTML = '';
@@ -73,7 +76,7 @@ function switchProject(projectName) {
 			document.querySelector('#header').innerHTML = '';
 			document.querySelector('#header').appendChild(projectDisplay);
 			createAddProjBtn();
-			createSwitchProjBtn();
+			createTaskButton(projectName);
 			return;
 		}
 	}

@@ -14,12 +14,11 @@ function createProjectHeader(project) {
 	document.querySelector('#header').innerHTML = '';
 	document.querySelector('#header').appendChild(projectDisplay);
 	createAddProjBtn();
-	createSwitchProjBtn();
+	createTaskButton(project);
 }
 
 function createProjectBody(project) {
 	document.querySelector('#content').innerHTML = '';
-	createTaskButton(project);
 	for (const task of project.taskList) {
 		displayTask(project, task);
 	}
