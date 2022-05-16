@@ -1,5 +1,6 @@
 import { hideForm, getFormData } from './formLogic';
 import { displayProject } from './projectLogic';
+import { Project } from './projectLogic';
 
 function createFormInputs() {
 	let inputFieldArr = [];

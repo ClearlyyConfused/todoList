@@ -52,7 +52,7 @@ function displayProjectList() {
 		let projectName = document.createElement('div');
 		projectName.innerText = x.name;
 		projectName.addEventListener('click', () => {
-			switchProject(x.name);
+			switchProject(x);
 		});
 
 		let delProject = document.createElement('button');
@@ -67,7 +67,7 @@ function displayProjectList() {
 
 function switchProject(projectName) {
 	for (const x of listOfProjects) {
-		if (x.name === projectName) {
+		if (x.name === projectName.name) {
 			document.querySelector('#content').innerHTML = '';
 			displayProject(x);
 			let projectDisplay = document.createElement('button');
