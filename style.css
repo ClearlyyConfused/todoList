@@ -434,12 +434,31 @@ body {
 
 .form {
 	width: 400px;
-	height: 500px;
-	background-color: aliceblue;
+	height: fit-content;
+	background-color: #d4c3b7;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	border: 5px inset #303633;
+}
+
+.form > div {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.form > button {
+	width: fit-content;
+	align-self: flex-end;
+	justify-self: flex-end;
+	font-weight: 600;
 }
 
 button {
