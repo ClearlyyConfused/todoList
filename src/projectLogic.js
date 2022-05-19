@@ -38,30 +38,31 @@ function delProjectFromList(project) {
 }
 
 function displayProjectList() {
-	document.querySelector('#formLocation').innerHTML = '';
-	let projectDisplay = document.createElement('div');
-	projectDisplay.className = 'projectDisplay';
-	document.querySelector('#formLocation').appendChild(projectDisplay);
+	if (document.querySelector('#projectDisplay').innerHTML === '') {
+		let projectDisplay = document.createElement('div');
+		projectDisplay.className = 'projectDisplay';
+		document.querySelector('#projectDisplay').appendChild(projectDisplay);
 
-	projectDisplay.appendChild(createExitButton());
+		for (const x of listOfProjects) {
+			let project = document.createElement('div');
+			projectDisplay.appendChild(project);
 
-	for (const x of listOfProjects) {
-		let project = document.createElement('div');
-		projectDisplay.appendChild(project);
+			let projectName = document.createElement('div');
+			projectName.innerText = x.name;
+			projectName.addEventListener('click', () => {
+				switchProject(x);
+			});
 
-		let projectName = document.createElement('div');
-		projectName.innerText = x.name;
-		projectName.addEventListener('click', () => {
-			switchProject(x);
-		});
-
-		let delProject = document.createElement('button');
-		delProject.innerText = 'X';
-		delProject.addEventListener('click', () => {
-			delProjectFromList(x);
-		});
-		project.appendChild(delProject);
-		project.appendChild(projectName);
+			let delProject = document.createElement('button');
+			delProject.innerText = 'X';
+			delProject.addEventListener('click', () => {
+				delProjectFromList(x);
+			});
+			project.appendChild(delProject);
+			project.appendChild(projectName);
+		}
+	} else {
+		document.querySelector('#projectDisplay').innerHTML = '';
 	}
 }
 
