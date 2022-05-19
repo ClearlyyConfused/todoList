@@ -40,6 +40,12 @@ function createTaskButton(project) {
 	document.querySelector('#addTask').addEventListener('click', () => {
 		showForm(project);
 	});
+
+	const image = document.createElement('img');
+	image.src = 'images/plus-box.png';
+	image.setAttribute('width', '30px');
+	image.setAttribute('height', 'auto');
+	addTaskButton.appendChild(image);
 }
 
 export { createCheckMarkBtn, createDelButton, createTaskButton };

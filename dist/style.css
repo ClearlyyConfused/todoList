@@ -363,6 +363,11 @@ body {
 	min-width: 900px;
 }
 
+#title {
+	font-family: 'Bebas Neue', cursive;
+	font-size: 80px;
+}
+
 #titleBar {
 	height: 115px;
 	width: 100%;
@@ -375,6 +380,7 @@ body {
 	justify-content: center;
 	border: 5px inset #303633;
 	box-sizing: border-box;
+	padding-top: 10px;
 }
 
 #header {
@@ -393,6 +399,10 @@ body {
 	padding: 10px;
 	background-color: #ffede1;
 	border-bottom: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }
 
 #content {
