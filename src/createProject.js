@@ -50,6 +50,7 @@ function createAddProjBtn() {
 		document.querySelector('#formLocation').innerHTML = '';
 		let name = prompt('What do you want to name the project?');
 		let project = createProject(name);
+		document.querySelector('#projectDisplay').innerHTML = '';
 		displayProject(project);
 	});
 

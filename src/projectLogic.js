@@ -66,33 +66,9 @@ function displayProjectList() {
 	}
 }
 
-function switchProject(projectName) {
-	for (const x of listOfProjects) {
-		if (x.name === projectName.name) {
-			document.querySelector('#content').innerHTML = '';
-			displayProject(x);
-			let projectDisplay = document.createElement('button');
-			projectDisplay.innerText = x.name;
-			projectDisplay.addEventListener('click', displayProjectList);
-			document.querySelector('#header').innerHTML = '';
-			document.querySelector('#header').appendChild(projectDisplay);
-			createAddProjBtn();
-			createTaskButton(projectName);
-			return;
-		}
-	}
-	alert('Error, no such project name!');
-}
-
 function displayProject(project) {
 	createProjectHeader(project);
 	createProjectBody(project);
 }
 
-export {
-	Project,
-	displayProject,
-	createProject,
-	switchProject,
-	displayProjectList,
-};
+export { Project, displayProject, createProject, displayProjectList };
