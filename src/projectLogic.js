@@ -1,6 +1,5 @@
 import {
 	createAddProjBtn,
-	createSwitchProjBtn,
 	createProjectHeader,
 	createProjectBody,
 } from './createProject';
@@ -46,12 +45,12 @@ function displayProjectList() {
 		for (const x of listOfProjects) {
 			let project = document.createElement('div');
 			projectDisplay.appendChild(project);
+			project.addEventListener('click', () => {
+				switchProject(x);
+			});
 
 			let projectName = document.createElement('div');
 			projectName.innerText = x.name;
-			projectName.addEventListener('click', () => {
-				switchProject(x);
-			});
 
 			let delProject = document.createElement('img');
 			delProject.src = 'images/delete.svg';
@@ -64,6 +63,24 @@ function displayProjectList() {
 	} else {
 		document.querySelector('#projectDisplay').innerHTML = '';
 	}
+}
+
+function switchProject(projectName) {
+	for (const x of listOfProjects) {
+		if (x.name === projectName.name) {
+			document.querySelector('#content').innerHTML = '';
+			displayProject(x);
+			let projectDisplay = document.createElement('button');
+			projectDisplay.innerText = x.name;
+			projectDisplay.addEventListener('click', displayProjectList);
+			document.querySelector('#header').innerHTML = '';
+			document.querySelector('#header').appendChild(projectDisplay);
+			createAddProjBtn();
+			createTaskButton(projectName);
+			return;
+		}
+	}
+	alert('Error, no such project name!');
 }
 
 function displayProject(project) {

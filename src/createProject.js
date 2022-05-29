@@ -30,17 +30,6 @@ function createProjectBody(project) {
 	}
 }
 
-function createSwitchProjBtn() {
-	const projectButton = document.createElement('button');
-	projectButton.setAttribute('id', '#switchProject');
-	projectButton.innerText = 'Switch Project';
-	projectButton.addEventListener('click', () => {
-		switchProject(prompt('Switch to which project?'));
-	});
-
-	document.querySelector('#header').appendChild(projectButton);
-}
-
 function createAddProjBtn() {
 	const projectButton = document.createElement('button');
 	projectButton.setAttribute('id', '#addProject');
@@ -61,9 +50,4 @@ function createAddProjBtn() {
 	projectButton.appendChild(image);
 }
 
-export {
-	createProjectHeader,
-	createAddProjBtn,
-	createSwitchProjBtn,
-	createProjectBody,
-};
+export { createProjectHeader, createAddProjBtn, createProjectBody };

@@ -443,6 +443,10 @@ body {
 	padding: 5px;
 }
 
+.projectDisplay > div:hover {
+	cursor: pointer;
+}
+
 .projectDisplay > div > img:hover {
 	cursor: pointer;
 }
