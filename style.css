@@ -358,37 +358,36 @@ body {
 	height: 100vh;
 	width: 100vw;
 	min-width: 500px;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: 'Fredoka One', cursive;
 	min-width: 900px;
 }
 
 #title {
-	font-family: 'Bebas Neue', cursive;
 	font-size: 80px;
 }
 
 #titleBar {
 	height: 115px;
 	width: 100%;
-	background-color: #303633;
+	background-color: #4ecdc4;
 	display: flex;
-	gap: 15px;
-	color: white;
+	gap: 20px;
+	color: #171a21;
 	font-size: 50px;
 	align-items: center;
 	justify-content: center;
-	border: 5px inset #303633;
+	border: 7px outset #3cc8bf;
 	box-sizing: border-box;
 	padding-top: 10px;
+}
+
+#titleBar > a > img {
+	margin-bottom: -8px;
 }
 
 #header {
 	height: 75px;
 	width: 100%;
-	background-color: #ffede1;
-	border: 5px outset #c6b8ae;
-	box-sizing: border-box;
 	display: grid;
 	grid-template-columns: 50% auto auto;
 	font-size: 30px;
@@ -397,16 +396,18 @@ body {
 #header > button {
 	font-weight: 600;
 	padding: 10px;
-	background-color: #ffede1;
-	border-bottom: none;
+	background-color: #ff6b6b;
+	border: 7px outset #ff5151;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
+	color: #171a21;
+	box-sizing: border-box;
 }
 
 #content {
-	background-color: #ffede1;
+	background-color: #ffe66d;
 	height: fit-content;
 	width: 100%;
 	flex-grow: 1;
@@ -414,26 +415,36 @@ body {
 	flex-direction: column;
 	align-items: center;
 	padding-top: 20px;
+	border: 7px outset #ffe251;
+	box-sizing: border-box;
+}
+
+#content > div > img:hover {
+	cursor: pointer;
 }
 
 .projectDisplay {
-	background-color: #ead9ce;
+	background-color: #ff7676;
 	font-weight: 600;
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
-	padding: 10px;
+	box-sizing: border-box;
+	border: 5px outset #ff5151;
 }
 
 .projectDisplay > div {
 	display: flex;
 	gap: 10px;
 	align-items: center;
+	color: #171a21;
+	border: 5px outset #ff5151;
+	border-top: 5px outset #ff7676;
+	border-left: 5px outset #ff7676;
+	padding: 5px;
 }
 
-.projectDisplay > div > button {
-	background-color: #d2c3ba;
-	font-weight: 900;
+.projectDisplay > div > img:hover {
+	cursor: pointer;
 }
 
 .task {
@@ -445,17 +456,27 @@ body {
 .form {
 	width: 400px;
 	height: fit-content;
-	background-color: #d4c3b7;
+	background-color: #efd6ac;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	box-sizing: border-box;
-	padding: 30px;
+	padding: 40px;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	border: 5px inset #303633;
+	border: 7px outset #171a21;
+}
+
+.form > img {
+	width: 30px;
+	height: 30px;
+	align-self: flex-end;
+}
+
+.form > img:hover {
+	cursor: pointer;
 }
 
 .form > div {
