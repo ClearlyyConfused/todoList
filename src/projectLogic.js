@@ -53,8 +53,8 @@ function displayProjectList() {
 				switchProject(x);
 			});
 
-			let delProject = document.createElement('button');
-			delProject.innerText = 'X';
+			let delProject = document.createElement('img');
+			delProject.src = 'images/delete.svg';
 			delProject.addEventListener('click', () => {
 				delProjectFromList(x);
 			});

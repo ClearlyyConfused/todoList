@@ -17,7 +17,7 @@ function createProjectHeader(project) {
 	createTaskButton(project);
 
 	const image = document.createElement('img');
-	image.src = 'images/dropdown.png';
+	image.src = 'images/dropdown.svg';
 	image.setAttribute('width', '30px');
 	image.setAttribute('height', 'auto');
 	projectDisplay.appendChild(image);
@@ -55,7 +55,7 @@ function createAddProjBtn() {
 	});
 
 	const image = document.createElement('img');
-	image.src = 'images/plus-box.png';
+	image.src = 'images/plus-circle.svg';
 	image.setAttribute('width', '30px');
 	image.setAttribute('height', 'auto');
 	projectButton.appendChild(image);

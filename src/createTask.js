@@ -2,19 +2,19 @@ import { delTaskFromProj } from './taskLogic';
 import { showForm } from './formLogic';
 
 function createCheckMarkBtn(task) {
-	let checkMarkButton = document.createElement('button');
+	let checkMarkButton = document.createElement('img');
 	if (task.complete === false) {
-		checkMarkButton.innerText = '❌';
+		checkMarkButton.src = 'images/close-circle.svg';
 	} else {
-		checkMarkButton.innerText = '✔️';
+		checkMarkButton.src = 'images/check-circle.svg';
 	}
 	checkMarkButton.classList.add('checkMark');
 	checkMarkButton.addEventListener('click', () => {
-		if (checkMarkButton.innerText === '✔️') {
-			checkMarkButton.innerText = '❌';
+		if (task.complete === true) {
+			checkMarkButton.src = 'images/close-circle.svg';
 			task.complete = false;
 		} else {
-			checkMarkButton.innerText = '✔️';
+			checkMarkButton.src = 'images/check-circle.svg';
 			task.complete = true;
 		}
 	});
@@ -22,8 +22,8 @@ function createCheckMarkBtn(task) {
 }
 
 function createDelButton(project, task) {
-	let deleteButton = document.createElement('button');
-	deleteButton.innerText = 'X';
+	let deleteButton = document.createElement('img');
+	deleteButton.src = 'images/delete.svg';
 	deleteButton.addEventListener('click', () => {
 		deleteButton.parentNode.parentNode.removeChild(deleteButton.parentNode);
 		delTaskFromProj(project, task);
@@ -42,7 +42,7 @@ function createTaskButton(project) {
 	});
 
 	const image = document.createElement('img');
-	image.src = 'images/plus-box.png';
+	image.src = 'images/plus-circle.svg';
 	image.setAttribute('width', '30px');
 	image.setAttribute('height', 'auto');
 	addTaskButton.appendChild(image);

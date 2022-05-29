@@ -41,8 +41,8 @@ function createFormInputs() {
 }
 
 function createExitButton() {
-	let exitButton = document.createElement('button');
-	exitButton.innerText = 'X';
+	let exitButton = document.createElement('img');
+	exitButton.src = 'images/arrow-left-circle.svg';
 	exitButton.addEventListener('click', hideForm);
 	return exitButton;
 }
