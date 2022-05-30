@@ -18,12 +18,34 @@ class Project {
 }
 
 var localStorageProjects = localStorage.getItem('localStorageProjects');
+console.log(JSON.parse(localStorageProjects));
 
-let listOfProjects = [];
+var listOfProjects = [];
+
+if (JSON.parse(localStorageProjects) === null) {
+	let project1 = createProject('Project 1');
+	displayProject(project1);
+} else {
+	createProjLocal(JSON.parse(localStorageProjects));
+	displayProject(listOfProjects[0]);
+}
+
+function createProjLocal(projectArr) {
+	for (const x in projectArr) {
+		let project = new Project(projectArr[x].name);
+
+		for (const task of projectArr[x].taskList) {
+			project.addTask(task);
+		}
+
+		listOfProjects.push(project);
+	}
+}
 
 function createProject(name) {
 	let project = new Project(name);
 	listOfProjects.push(project);
+	console.log(listOfProjects);
 
 	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
 	console.log(JSON.parse(localStorage.getItem('localStorageProjects')));
@@ -38,6 +60,7 @@ function delProjectFromList(project) {
 		}
 		y++;
 	}
+	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
 	displayProjectList();
 }
 
@@ -89,6 +112,7 @@ function switchProject(projectName) {
 }
 
 function displayProject(project) {
+	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
 	createProjectHeader(project);
 	createProjectBody(project);
 }
