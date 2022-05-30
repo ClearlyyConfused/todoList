@@ -17,11 +17,16 @@ class Project {
 	}
 }
 
+var localStorageProjects = localStorage.getItem('localStorageProjects');
+
 let listOfProjects = [];
 
 function createProject(name) {
 	let project = new Project(name);
 	listOfProjects.push(project);
+
+	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
+	console.log(JSON.parse(localStorage.getItem('localStorageProjects')));
 	return project;
 }
 
