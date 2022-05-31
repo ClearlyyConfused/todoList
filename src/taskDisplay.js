@@ -18,6 +18,7 @@ function createCheckMarkBtn(task) {
 			task.complete = true;
 		}
 	});
+
 	return checkMarkButton;
 }
 

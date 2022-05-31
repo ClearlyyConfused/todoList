@@ -23,7 +23,7 @@ function createFormInputs() {
 			inputField.setAttribute('required', '');
 		} else {
 			inputField.setAttribute('type', 'text');
-			inputField.setAttribute('maxlength', '30');
+			inputField.setAttribute('maxlength', '50');
 			inputField.setAttribute('required', '');
 		}
 
