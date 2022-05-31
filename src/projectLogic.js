@@ -10,6 +10,13 @@ class Project {
 
 	addTask(task) {
 		this.taskList.push(task);
+		this.sortTasks();
+	}
+
+	sortTasks() {
+		this.taskList.sort((a, b) => {
+			return new Date(a.dueDate) - new Date(b.dueDate);
+		});
 	}
 }
 

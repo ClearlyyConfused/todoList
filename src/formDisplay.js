@@ -23,7 +23,7 @@ function createFormInputs() {
 			inputField.setAttribute('required', '');
 		} else {
 			inputField.setAttribute('type', 'text');
-			inputField.setAttribute('maxlength', '50');
+			inputField.setAttribute('maxlength', '85');
 			inputField.setAttribute('required', '');
 		}
 
@@ -53,6 +53,7 @@ function createFormEnterBtn(project) {
 		if (validateInputs() === true) {
 			let newTask = getFormData();
 			project.addTask(newTask);
+			project.sortTasks();
 			displayProject(project);
 			hideForm();
 		}
