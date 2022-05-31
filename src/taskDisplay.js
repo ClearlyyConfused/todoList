@@ -21,7 +21,7 @@ function createCheckMarkBtn(task) {
 	return checkMarkButton;
 }
 
-function createDelButton(project, task) {
+function createDelTaskBtn(project, task) {
 	let deleteButton = document.createElement('img');
 	deleteButton.src = 'images/delete.svg';
 	deleteButton.addEventListener('click', () => {
@@ -31,7 +31,7 @@ function createDelButton(project, task) {
 	return deleteButton;
 }
 
-function createTaskButton(project) {
+function createAddTaskBtn(project) {
 	let addTaskButton = document.createElement('button');
 	addTaskButton.innerText = 'Add Task';
 	addTaskButton.setAttribute('id', 'addTask');
@@ -48,4 +48,4 @@ function createTaskButton(project) {
 	addTaskButton.appendChild(image);
 }
 
-export { createCheckMarkBtn, createDelButton, createTaskButton };
+export { createCheckMarkBtn, createDelTaskBtn, createAddTaskBtn };

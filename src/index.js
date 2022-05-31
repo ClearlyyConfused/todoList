@@ -1,2 +1,1 @@
-import { createProject } from './projectLogic';
-import { displayProject } from './projectLogic';
+import { Project } from './projectLogic';

@@ -1,4 +1,4 @@
-import { createCheckMarkBtn, createDelButton } from './createTask';
+import { createCheckMarkBtn, createDelTaskBtn } from './taskDisplay';
 import { displayProject } from './projectLogic';
 
 class Task {
@@ -35,7 +35,7 @@ function displayTask(project, task) {
 	}
 
 	taskBody.appendChild(createCheckMarkBtn(task));
-	taskBody.appendChild(createDelButton(project, task));
+	taskBody.appendChild(createDelTaskBtn(project, task));
 }
 
 function delTaskFromProj(project, task) {

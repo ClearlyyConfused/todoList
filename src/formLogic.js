@@ -1,22 +1,22 @@
 import { Task } from './taskLogic';
 import {
 	createFormInputs,
-	createEnterButton,
-	createExitButton,
-} from './createForm';
+	createFormEnterBtn,
+	createFormExitBtn,
+} from './formDisplay';
 
 function showForm(project) {
 	let formBase = document.createElement('form');
 	formBase.className = 'form';
 	document.querySelector('#formLocation').appendChild(formBase);
 
-	formBase.appendChild(createExitButton());
+	formBase.appendChild(createFormExitBtn());
 
 	for (const input of createFormInputs()) {
 		formBase.appendChild(input);
 	}
 
-	formBase.appendChild(createEnterButton(project));
+	formBase.appendChild(createFormEnterBtn(project));
 }
 
 function hideForm() {

@@ -1,10 +1,6 @@
-import {
-	createAddProjBtn,
-	createProjectHeader,
-	createProjectBody,
-} from './createProject';
-import { createExitButton } from './createForm';
-import { createTaskButton } from './createTask';
+import { createAddProjBtn, createProjectHeader } from './projectDisplay';
+import { createAddTaskBtn } from './taskDisplay';
+import { displayTask } from './taskLogic';
 
 class Project {
 	constructor(name) {
@@ -97,14 +93,12 @@ function switchProject(projectName) {
 	for (const x of listOfProjects) {
 		if (x.name === projectName.name) {
 			document.querySelector('#content').innerHTML = '';
-			displayProject(x);
 			let projectDisplay = document.createElement('button');
 			projectDisplay.innerText = x.name;
 			projectDisplay.addEventListener('click', displayProjectList);
 			document.querySelector('#header').innerHTML = '';
 			document.querySelector('#header').appendChild(projectDisplay);
-			createAddProjBtn();
-			createTaskButton(projectName);
+			displayProject(x);
 			return;
 		}
 	}
@@ -114,7 +108,14 @@ function switchProject(projectName) {
 function displayProject(project) {
 	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
 	createProjectHeader(project);
-	createProjectBody(project);
+	displayProjTasks(project);
+}
+
+function displayProjTasks(project) {
+	document.querySelector('#content').innerHTML = '';
+	for (const task of project.taskList) {
+		displayTask(project, task);
+	}
 }
 
 export { Project, displayProject, createProject, displayProjectList };

@@ -1,6 +1,5 @@
 import { hideForm, getFormData } from './formLogic';
 import { displayProject } from './projectLogic';
-import { Project } from './projectLogic';
 import { validateInputs } from './formLogic';
 
 function createFormInputs() {
@@ -40,19 +39,18 @@ function createFormInputs() {
 	return inputFieldArr;
 }
 
-function createExitButton() {
+function createFormExitBtn() {
 	let exitButton = document.createElement('img');
 	exitButton.src = 'images/arrow-left-circle.svg';
 	exitButton.addEventListener('click', hideForm);
 	return exitButton;
 }
 
-function createEnterButton(project) {
+function createFormEnterBtn(project) {
 	let enterButton = document.createElement('button');
 	enterButton.innerText = 'Enter';
 	enterButton.addEventListener('click', () => {
 		if (validateInputs() === true) {
-			console.log('yup');
 			let newTask = getFormData();
 			project.addTask(newTask);
 			displayProject(project);
@@ -62,4 +60,4 @@ function createEnterButton(project) {
 	return enterButton;
 }
 
-export { createFormInputs, createExitButton, createEnterButton };
+export { createFormInputs, createFormExitBtn, createFormEnterBtn };
