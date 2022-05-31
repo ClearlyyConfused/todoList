@@ -71,22 +71,22 @@ function displayProjectList() {
 		document.querySelector('#projectDisplay').appendChild(projectDisplay);
 
 		for (const x of listOfProjects) {
-			let project = document.createElement('div');
-			projectDisplay.appendChild(project);
-			project.addEventListener('click', () => {
-				switchProject(x);
-			});
-
 			let projectName = document.createElement('div');
 			projectName.innerText = x.name;
+			projectName.addEventListener('click', () => {
+				switchProject(x);
+			});
 
 			let delProject = document.createElement('img');
 			delProject.src = 'images/delete.svg';
 			delProject.addEventListener('click', () => {
 				delProjectFromList(x);
 			});
-			project.appendChild(delProject);
-			project.appendChild(projectName);
+			let projectContainer = document.createElement('div');
+
+			projectContainer.appendChild(delProject);
+			projectDisplay.appendChild(projectContainer);
+			projectContainer.appendChild(projectName);
 		}
 	} else {
 		document.querySelector('#projectDisplay').innerHTML = '';

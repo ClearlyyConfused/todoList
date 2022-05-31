@@ -443,6 +443,10 @@ body {
 	padding: 5px;
 }
 
+.projectDisplay > div > div {
+	flex-grow: 1;
+}
+
 .projectDisplay > div:hover {
 	cursor: pointer;
 }
