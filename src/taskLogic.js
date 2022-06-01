@@ -6,7 +6,7 @@ class Task {
 		this.name = info[0];
 		this.description = info[1];
 		this.dueDate = info[2];
-		this.priority = info[3];
+
 		this.complete = false;
 	}
 }
@@ -15,14 +15,12 @@ function createTask(Task) {
 	let name = document.createElement('div');
 	let description = document.createElement('div');
 	let dueDate = document.createElement('div');
-	let priority = document.createElement('div');
 
 	name.innerText = `Name: ${Task.name}`;
 	description.innerText = `Description: ${Task.description}`;
 	dueDate.innerText = `Due Date: ${Task.dueDate}`;
-	priority.innerText = `Priority: ${Task.priority}`;
 
-	return [name, description, dueDate, priority];
+	return [name, description, dueDate];
 }
 
 function displayTask(project, task) {

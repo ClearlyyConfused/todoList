@@ -4,26 +4,21 @@ import { validateInputs } from './formLogic';
 
 function createFormInputs() {
 	let inputFieldArr = [];
-	for (const x of ['name', 'description', 'dueDate', 'priority']) {
+	for (const x of ['name', 'description', 'dueDate']) {
 		let inputField = document.createElement('input');
 		inputField.setAttribute('id', x);
 
 		if (x === 'dueDate') {
 			inputField.setAttribute('type', 'date');
 			inputField.setAttribute('required', '');
-		} else if (x === 'priority') {
-			inputField.setAttribute('type', 'number');
-			inputField.setAttribute('min', '1');
-			inputField.setAttribute('max', '4');
-			inputField.setAttribute('required', '');
 		} else if (x === 'name') {
 			inputField.setAttribute('type', 'text');
 			inputField.setAttribute('minlength', '1');
-			inputField.setAttribute('maxlength', '15');
+			inputField.setAttribute('maxlength', '20');
 			inputField.setAttribute('required', '');
 		} else {
 			inputField.setAttribute('type', 'text');
-			inputField.setAttribute('maxlength', '85');
+			inputField.setAttribute('maxlength', '100');
 			inputField.setAttribute('required', '');
 		}
 

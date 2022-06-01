@@ -2,19 +2,23 @@ import { delTaskFromProj } from './taskLogic';
 import { showForm } from './formLogic';
 
 function createCheckMarkBtn(task) {
-	let checkMarkButton = document.createElement('img');
+	let checkMarkButton = document.createElement('div');
 	if (task.complete === false) {
-		checkMarkButton.src = 'images/close-circle.svg';
+		checkMarkButton.innerText = 'INCOMPLETE';
+		checkMarkButton.style.color = 'red';
 	} else {
-		checkMarkButton.src = 'images/check-circle.svg';
+		checkMarkButton.innerText = 'COMPLETE';
+		checkMarkButton.style.color = 'green';
 	}
 	checkMarkButton.classList.add('checkMark');
 	checkMarkButton.addEventListener('click', () => {
 		if (task.complete === true) {
-			checkMarkButton.src = 'images/close-circle.svg';
+			checkMarkButton.innerText = 'INCOMPLETE';
+			checkMarkButton.style.color = 'red';
 			task.complete = false;
 		} else {
-			checkMarkButton.src = 'images/check-circle.svg';
+			checkMarkButton.innerText = 'COMPLETE';
+			checkMarkButton.style.color = 'green';
 			task.complete = true;
 		}
 	});
@@ -24,7 +28,7 @@ function createCheckMarkBtn(task) {
 
 function createDelTaskBtn(project, task) {
 	let deleteButton = document.createElement('img');
-	deleteButton.src = 'images/delete.svg';
+	deleteButton.src = 'images/close-circle.svg';
 	deleteButton.addEventListener('click', () => {
 		deleteButton.parentNode.parentNode.removeChild(deleteButton.parentNode);
 		delTaskFromProj(project, task);

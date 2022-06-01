@@ -27,18 +27,16 @@ function getFormData() {
 	let name = document.querySelector('#name').value;
 	let description = document.querySelector('#description').value;
 	let dueDate = document.querySelector('#dueDate').value;
-	let priority = document.querySelector('#priority').value;
 
-	return new Task([name, description, dueDate, priority]);
+	return new Task([name, description, dueDate]);
 }
 
 function validateInputs() {
 	let name = document.querySelector('#name');
 	let description = document.querySelector('#description');
 	let dueDate = document.querySelector('#dueDate');
-	let priority = document.querySelector('#priority');
 
-	for (const input of [name, description, dueDate, priority]) {
+	for (const input of [name, description, dueDate]) {
 		if (input.checkValidity() === true) {
 		} else {
 			return false;
