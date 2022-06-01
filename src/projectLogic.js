@@ -87,9 +87,9 @@ function displayProjectList() {
 			});
 			let projectContainer = document.createElement('div');
 
-			projectContainer.appendChild(delProject);
 			projectDisplay.appendChild(projectContainer);
 			projectContainer.appendChild(projectName);
+			projectContainer.appendChild(delProject);
 		}
 	} else {
 		document.querySelector('#projectDisplay').innerHTML = '';

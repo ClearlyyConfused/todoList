@@ -477,19 +477,18 @@ body {
 	flex-direction: column;
 	box-sizing: border-box;
 	border: 5px outset #a3333d;
-	gap: 5px;
 }
 
 .projectDisplay > div {
 	display: flex;
-	gap: 10px;
 	align-items: center;
 	color: #171a21;
-	border: 5px outset #8c2c34;
+	border: 7px outset #c23e49;
 	background-color: #c23e49;
 	padding: 5px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-bottom: -1px;
 }
 
 .projectDisplay > div > div {
