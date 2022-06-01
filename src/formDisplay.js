@@ -14,7 +14,7 @@ function createFormInputs() {
 		} else if (x === 'name') {
 			inputField.setAttribute('type', 'text');
 			inputField.setAttribute('minlength', '1');
-			inputField.setAttribute('maxlength', '20');
+			inputField.setAttribute('maxlength', '25');
 			inputField.setAttribute('required', '');
 		} else {
 			inputField.setAttribute('type', 'text');

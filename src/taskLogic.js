@@ -16,7 +16,7 @@ function createTask(Task) {
 	let description = document.createElement('div');
 	let dueDate = document.createElement('div');
 
-	name.innerText = `Name: ${Task.name}`;
+	name.innerText = `${Task.name}`;
 	description.innerText = `Description: ${Task.description}`;
 	dueDate.innerText = `Due Date: ${Task.dueDate}`;
 
