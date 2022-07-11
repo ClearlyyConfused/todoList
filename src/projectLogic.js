@@ -21,7 +21,6 @@ class Project {
 }
 
 var localStorageProjects = localStorage.getItem('localStorageProjects');
-console.log(JSON.parse(localStorageProjects));
 
 var listOfProjects = [];
 
@@ -30,6 +29,10 @@ if (JSON.parse(localStorageProjects) === null) {
 	displayProject(project1);
 } else {
 	createProjLocal(JSON.parse(localStorageProjects));
+	if (listOfProjects.length === 0) {
+		let project1 = createProject('Project 1');
+		displayProject(project1);
+	}
 	displayProject(listOfProjects[0]);
 }
 
@@ -48,18 +51,22 @@ function createProjLocal(projectArr) {
 function createProject(name) {
 	let project = new Project(name);
 	listOfProjects.push(project);
-	console.log(listOfProjects);
 
 	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
-	console.log(JSON.parse(localStorage.getItem('localStorageProjects')));
 	return project;
 }
 
 function delProjectFromList(project) {
+	if (listOfProjects.length === 1) {
+		alert('Cannot delete last project!');
+		return;
+	}
+
 	let y = 0;
 	for (const x of listOfProjects) {
 		if (x === project) {
 			listOfProjects.splice(y, 1);
+			displayProject(x, true);
 		}
 		y++;
 	}
@@ -112,8 +119,14 @@ function switchProject(projectName) {
 	alert('Error, no such project name!');
 }
 
-function displayProject(project) {
+function displayProject(project, deleted = false) {
 	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
+	if (deleted) {
+		document.querySelector('#content').innerHTML =
+			'This project has been successfully deleted';
+		createProjectHeader(project, true);
+		return;
+	}
 	createProjectHeader(project);
 	displayProjTasks(project);
 }

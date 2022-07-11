@@ -1,14 +1,14 @@
 import { displayProjectList, createProject, displayProject } from './projectLogic';
 import { createAddTaskBtn } from './taskDisplay';
 
-function createProjectHeader(project) {
+function createProjectHeader(project, deleted = false) {
 	let projectDisplay = document.createElement('button');
 	projectDisplay.addEventListener('click', displayProjectList);
 	projectDisplay.innerText = project.name;
 	document.querySelector('#header').innerHTML = '';
 	document.querySelector('#header').appendChild(projectDisplay);
 	createAddProjBtn();
-	createAddTaskBtn(project);
+	createAddTaskBtn(project, deleted);
 
 	const image = document.createElement('img');
 	image.src = 'images/dropdown.svg';

@@ -36,15 +36,17 @@ function createDelTaskBtn(project, task) {
 	return deleteButton;
 }
 
-function createAddTaskBtn(project) {
+function createAddTaskBtn(project, deleted) {
 	let addTaskButton = document.createElement('button');
 	addTaskButton.innerText = 'Add Task';
 	addTaskButton.setAttribute('id', 'addTask');
 	document.querySelector('#header').appendChild(addTaskButton);
 
-	document.querySelector('#addTask').addEventListener('click', () => {
-		showForm(project);
-	});
+	if (deleted === false) {
+		document.querySelector('#addTask').addEventListener('click', () => {
+			showForm(project);
+		});
+	}
 
 	const image = document.createElement('img');
 	image.src = 'images/plus-circle.svg';
