@@ -53,9 +53,16 @@ function createProjLocal(projectArr) {
 }
 
 function createProject(name) {
-	let project = new Project(name);
-	listOfProjects.push(project);
-	return project;
+	if (name === '') {
+		alert('Name cannot be empty!');
+		return;
+	} else if (name === null) {
+		return;
+	} else {
+		let project = new Project(name);
+		listOfProjects.push(project);
+		return project;
+	}
 }
 
 function delProjectFromList(project) {

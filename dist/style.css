@@ -517,7 +517,7 @@ body {
 .form {
 	width: 400px;
 	height: fit-content;
-	background-color: #efd6ac;
+	background-color: #ffe66d;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -527,7 +527,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	border: 7px outset #171a21;
+	border: 3px outset #171a21;
+	box-shadow: 3px 5px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 .form > img {
