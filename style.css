@@ -385,7 +385,8 @@ body {
 }
 
 #header {
-	height: 75px;
+	height: 70px;
+	z-index: 1;
 	width: 100%;
 	display: grid;
 	grid-template-columns: 50% auto auto;
@@ -411,9 +412,8 @@ body {
 	padding: 25px;
 	box-sizing: border-box;
 	flex-wrap: wrap;
-	border: 10px solid #a0905c;
-	border-top: 5px solid #a0905c;
-	border-left: none;
+	border-top: 8px solid #706646;
+	border-bottom: 10px solid #a0905c;
 }
 
 .task {
@@ -481,6 +481,8 @@ body {
 	flex-direction: column;
 	box-sizing: border-box;
 	border: 3px solid black;
+	border-left: none;
+	border-right: none;
 	border-top: none;
 	overflow: hidden;
 }
@@ -489,16 +491,19 @@ body {
 	display: flex;
 	align-items: center;
 	color: #171a21;
-	background-color: #ffe66d;
-	padding: 5px;
-	padding-left: 15px;
 	padding-right: 15px;
 	margin-bottom: -1px;
 	border-top: 1px solid black;
 }
 
 .projectDisplay > div > div {
+	padding: 5px;
+	padding-left: 15px;
 	flex-grow: 1;
+}
+
+.projectDisplay > div > div:hover {
+	text-decoration: underline;
 }
 
 .projectDisplay > div:hover {
