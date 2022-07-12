@@ -1,5 +1,4 @@
-import { createAddProjBtn, createProjectHeader } from './projectDisplay';
-import { createAddTaskBtn } from './taskDisplay';
+import { createProjectHeader } from './projectDisplay';
 import { displayTask } from './taskLogic';
 
 class Project {
@@ -36,6 +35,11 @@ if (JSON.parse(localStorageProjects) === null) {
 	displayProject(listOfProjects[0]);
 }
 
+setInterval(() => {
+	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
+	console.log('test');
+}, 1000);
+
 function createProjLocal(projectArr) {
 	for (const x in projectArr) {
 		let project = new Project(projectArr[x].name);
@@ -51,8 +55,6 @@ function createProjLocal(projectArr) {
 function createProject(name) {
 	let project = new Project(name);
 	listOfProjects.push(project);
-
-	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
 	return project;
 }
 
@@ -61,7 +63,6 @@ function delProjectFromList(project) {
 		alert('Cannot delete last project!');
 		return;
 	}
-
 	let y = 0;
 	for (const x of listOfProjects) {
 		if (x === project) {
@@ -70,7 +71,6 @@ function delProjectFromList(project) {
 		}
 		y++;
 	}
-	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
 	displayProjectList();
 }
 
@@ -120,7 +120,6 @@ function switchProject(projectName) {
 }
 
 function displayProject(project, deleted = false) {
-	localStorage.setItem('localStorageProjects', JSON.stringify(listOfProjects));
 	if (deleted) {
 		document.querySelector('#content').innerHTML =
 			'This project has been successfully deleted';
