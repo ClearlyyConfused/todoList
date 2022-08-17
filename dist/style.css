@@ -393,8 +393,9 @@ body {
 	flex-wrap: wrap;
 }
 
-@media (max-width: 819.5px) {
+@media (max-width: 850px) {
 	#header > button:nth-child(1) {
+		min-width: 100% !important;
 		order: 3;
 	}
 }
@@ -498,7 +499,8 @@ body {
 	border-right: none;
 	border-top: none;
 	overflow: hidden;
-	width: 100vw;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .projectDisplay > div {
