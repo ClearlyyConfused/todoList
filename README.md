@@ -8,7 +8,7 @@ Website that allows users to create todo lists. Users can create "tasks" that ha
 
 ## Deployment 🚀
 
-https://clearlyyconfused.github.io/todoList/
+https://louisdoan9.github.io/todoList/
 
 ## Screenshots 📸
 
