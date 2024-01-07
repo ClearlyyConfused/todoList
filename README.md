@@ -12,5 +12,5 @@ https://louisdoan9.github.io/todoList/
 
 ## Screenshots 📸
 
-![App Screenshot 1](./README_images/Screenshot%202023-07-26%20175827.png)
-![App Screenshot 2](./README_images/Screenshot%202023-07-26%20175652.png)
+![App Screenshot 1](./README_images/todoList.png)
+![App Screenshot 2](./README_images/todoList2.png)
